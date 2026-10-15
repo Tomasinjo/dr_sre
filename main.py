@@ -7,7 +7,7 @@ from langchain_core.messages import AIMessage, HumanMessage, trim_messages
 from langchain_core.messages.utils import count_tokens_approximately
 
 from src.telegram import telegram_bot
-from src.agent import agent
+from src.agent.agent import agent
 
 # short term memory, all chat messages, max 30k tokens
 chat_history = []
