@@ -1,7 +1,6 @@
 services:
   dr-sre:
-    build: .
-    image: dr-sre:latest
+    image: ghcr.io/tomasinjo/dr_sre:latest
     container_name: dr-sre
     user: "${PUID:-1000}:${PGID:-100}"
     env_file: .env
