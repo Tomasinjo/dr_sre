@@ -1,0 +1,12 @@
+journald:
+  base: '{source_type="journald"} PRIORITY:re("^[0-3]$")'
+  key_field: SYSLOG_IDENTIFIER
+  exclusions: []
+docker:
+  base: (_msg:i("failed") or _msg:i("fail") or _msg:i("error") or _msg:i("err") or _msg:i("cannot")) and source_type:"docker_logs"
+  key_field: container_name
+  fields:
+  - _time
+  - _msg
+  - container_name
+  exclusions: []

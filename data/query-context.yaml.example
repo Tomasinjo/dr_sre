@@ -1,0 +1,16 @@
+command_context:
+  query: file:"/var/log/zsh/history.jsonl"
+  limit: 100
+  fields:
+  - _time
+  - _msg
+  - exit_code
+  - user
+  - host
+  instructions: >-
+    Recent shell commands run by the user on all hosts (rows newest first;
+    fields: _time, _msg = command line, exit_code, user, host). Correlation
+    only, never alert on these rows: check whether errors align with admin
+    actions (deploys, restarts, updates, config edits) on the same host just
+    before the error window, and cite the likely trigger command when it
+    lines up.

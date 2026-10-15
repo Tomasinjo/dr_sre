@@ -1,0 +1,11 @@
+services:
+  dr-sre:
+    build: .
+    image: dr-sre:latest
+    container_name: dr-sre
+    user: "${PUID:-1000}:${PGID:-100}"
+    env_file: .env
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+    init: true
