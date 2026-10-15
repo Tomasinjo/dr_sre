@@ -5,7 +5,7 @@ COPY --from=ghcr.io/astral-sh/uv:0.11.21 /uv /uvx /bin/
 ENV UV_COMPILE_BYTECODE=1 \
     UV_LINK_MODE=copy \
     PYTHONUNBUFFERED=1 \
-    TZ=UTC \
+    TZ=UTC
 
 WORKDIR /app
 
@@ -16,8 +16,6 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 COPY main.py ./
 COPY src/ src/
 COPY data/ data/
-COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 ENV PATH="/app/.venv/bin:$PATH"
 CMD ["python", "main.py"]
